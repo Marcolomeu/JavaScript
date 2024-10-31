@@ -3,7 +3,7 @@ const colecaoPokemonsFogo = [
         id: 1,
         nome: "Charmander",
         geracao: "Kanto"
-    },
+    }, 
     {
         id: 2,
         nome: "Cyndaquil",
