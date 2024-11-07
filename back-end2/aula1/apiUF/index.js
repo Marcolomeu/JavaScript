@@ -14,6 +14,7 @@ app.get('/ufs', (req, res) => {
 });
 
 
+
 app.get('/ufs/:iduf', (req, res) => {
     const uf = buscarUfPorId(req.params.iduf);
     if (uf) {

@@ -9,13 +9,10 @@ app.get('/historicoIPCA', (req, res) => {
 
 //app.get('/historicoIPCA:')
 
-app.get('/historicoIPCA:idIPCA', (req, res) => {
+app.get('/historicoIPCA/:idIPCA', (req, res) => {
     const id = id_IPCA_BUSCAR(req.params.idIPCA);
     res.json(id)
 })
-
-
-
 
 app.listen(8080, () => {
     let data = new Date();
