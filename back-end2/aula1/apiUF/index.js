@@ -13,6 +13,7 @@ app.get('/ufs', (req, res) => {
     }
 });
 
+
 app.get('/ufs/:iduf', (req, res) => {
     const uf = buscarUfPorId(req.params.iduf);
     if (uf) {
@@ -20,7 +21,7 @@ app.get('/ufs/:iduf', (req, res) => {
     } else if (isNaN(parseInt(req.params.iduf))) {
         res.status(400).send({"erro": "Requisição inválida"});
     } else {
-        res.status(404).send({"erro": "UF não encontrada"});
+        res.status(404).send({"erro": "id não encontrado"});
     }
 })
 
