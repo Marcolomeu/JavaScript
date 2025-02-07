@@ -7,7 +7,7 @@ app.get('/medicos', async (req, res) => {
     if (typeof especialidade === 'undefined' && typeof nome === 'undefined') {
         resposta = await medicos()
     } else if (typeof especialidade !== 'undefined') {
-        resposta = await medicosEspecialidade(parseInt(especialidade))
+        resposta = await medicosEspecialidade((especialidade))
     } else if (typeof nome !== 'undefined') {
         resposta = await medicosNome(nome)
     }
