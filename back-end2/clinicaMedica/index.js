@@ -1,4 +1,7 @@
 import {medicos, medicosEspecialidade, medicosNome } from "./servicos/retornaMedicos_servico.js";
+import express from 'express';
+
+const app = express();
 
 app.get('/medicos', async (req, res) => {
     const especialidade = req.query.especialidade;
