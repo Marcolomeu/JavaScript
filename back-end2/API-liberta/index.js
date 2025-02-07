@@ -47,7 +47,6 @@ app.get('/campeonatos/:id', async (req, res) => {
 app.listen(9000, async () => {
     const data = new Date()
     console.log("Servidor iniciado na porta 9000", data);
-
     const conexao = await pool.getConnection();
     console.log(conexao.threadId);
     conexao.release();
