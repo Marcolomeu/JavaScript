@@ -8,7 +8,7 @@ export async function executarQuery(conexao, query) {
 
 export async function medicos() {
     const conexao = await pool.getConnection()
-    const query = "SELECT * FROM medicos"
+    const query = "SELECT medicos.id, medicos.nome, medicos.telefone, medicos.email, especialidades.especialidade FROM medicos INNER JOIN especialidades ON especialidades.id = medicos.especialidade;"
     let resposta_medicos = await conexao.query(query);
     let resposta = resposta_medicos[0]
     conexao.release()
@@ -17,7 +17,7 @@ export async function medicos() {
 
 export async function medicosEspecialidade(especialidade) {
     const conexao = await pool.getConnection()
-    const query = `SELECT id, nome, telefone, email, especialidade FROM medicos WHERE especialidade = ${especialidade}`
+    const query = `SELECT medicos.id, medicos.nome, medicos.telefone, medicos.email, especialidades.especialidade FROM medicos INNER JOIN especialidades ON especialidades.id = medicos.especialidade WHERE especialidades.especialidade = "${especialidade}"`
     let resposta = executarQuery(conexao, query)
     conexao.release()
     return resposta
@@ -25,7 +25,7 @@ export async function medicosEspecialidade(especialidade) {
 
 export async function medicosNome(nome) {
     const conexao = await pool.getConnection()
-    const query = "SELECT id, nome, telefone, email, especialidade FROM medicos WHERE nome '%" + nome + "%'"
+    const query = "SELECT medicos.id, medicos.nome, medicos.telefone, medicos.email, especialidades.especialidade FROM medicos INNER JOIN especialidades ON especialidades.id = medicos.especialidade WHERE medicos.nome LIKE '%" + nome + "%'"
     let resposta = executarQuery(conexao, query)
     conexao.release()
     return resposta

@@ -1,5 +1,6 @@
 import {medicos, medicosEspecialidade, medicosNome } from "./servicos/retornaMedicos_servico.js";
 import express from 'express';
+import pool from "./servicos/conexao.js";
 
 const app = express();
 
