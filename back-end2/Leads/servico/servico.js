@@ -11,9 +11,9 @@ export async function listarTudo() {
 
 export async function cadastrarUsuarios(nome, email, telefone) {
     const conexao = await pool.getConnection();
-    const resposta = await conexao.query (
+    const resposta = await conexao.query(
         `INSERT INTO Leads (nome, email, telefone) VALUES (?, ?, ?)`, [nome, email, telefone]
-    )
+    );
     console.log(resposta);
     conexao.release();
     return resposta;

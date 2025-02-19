@@ -1,0 +1,55 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('/front/img/dragonBall.png'); 
+    background-size: cover; 
+    background-position: center; 
+}
+
+form {
+    background-color: #000000d1;
+    padding: 20px;
+    border-radius: 5px;
+    color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.885);
+    width: 40vw;
+    height: 50vh;
+    display: block;
+    align-items: center;
+}
+
+form h1{
+    color: #ffffff;
+    text-align: center;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 95%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #f3f3f3;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #4cb0cb;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
