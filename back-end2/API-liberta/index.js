@@ -50,5 +50,4 @@ app.listen(9000, async () => {
     const conexao = await pool.getConnection();
     console.log(conexao.threadId);
     conexao.release();
-
 })

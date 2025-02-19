@@ -7,4 +7,4 @@ export async function cadastarCampeonatos(campeao, vice, ano){
     )
     console.log(resposta)
     conexao.release()
-}
+}   
