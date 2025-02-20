@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors'; // Importar o middleware cors
 import pool from './servico/conexao.js';
 import { listarTudo, cadastrarUsuarios } from './servico/servico.js';
+import { validaUsuario } from './valida/valida.js';
 
 const app = express();
 app.use(cors()); // Usar o middleware cors
@@ -20,12 +21,15 @@ app.post('/usuarios', async (req, res) => {
     const nome = req.body.nome;
     const email = req.body.email;
     const telefone = req.body.telefone;
-    try {
+
+    const usuarioValido = validaUsuario(nome, email)
+    if (usuarioValido.status) {
         await cadastrarUsuarios(nome, email, telefone);
-        res.status(201).send({"Mensagem": "Cadastro efetivado com sucesso!"});
-    } catch (error) {
-        res.status(500).json({ error: 'Erro ao cadastrar usuário' });
+        res.status(204).send({"Mensagem": "Cadastro efetivado com sucesso!"});
+    } else{
+        res.status(400).send( {mensagem: usuarioValido.mensagem});
     }
+
 });
 
 app.listen(3000, async () => {
