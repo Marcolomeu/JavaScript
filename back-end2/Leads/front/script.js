@@ -17,5 +17,7 @@ document.getElementById('cadastroForm').addEventListener('submit', async functio
         console.log('Cadastro efetuado com sucesso!');
     } else {
         console.log('Erro ao cadastrar usuário.');
+        const audioErro = new Audio('goku-e-um-fracassado.mp3');
+        audioErro.play();
     }
 });
