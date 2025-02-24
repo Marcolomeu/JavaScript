@@ -1,11 +1,11 @@
 import express from 'express';
-import cors from 'cors'; // Importar o middleware cors
+import cors from 'cors'; 
 import pool from './servico/conexao.js';
 import { listarTudo, cadastrarUsuarios } from './servico/servico.js';
 import { validaUsuario } from './valida/valida.js';
 
 const app = express();
-app.use(cors()); // Usar o middleware cors
+app.use(cors()); 
 app.use(express.json());
 
 app.get('/usuarios', async (req, res) => {
@@ -27,7 +27,7 @@ app.post('/usuarios', async (req, res) => {
         await cadastrarUsuarios(nome, email, telefone);
         res.status(204).send({"Mensagem": "Cadastro efetivado com sucesso!"});
     } else{
-        res.status(400).send( {mensagem: usuarioValido.mensagem});
+        res.status(400).send( {"Mensagem": usuarioValido.mensagem});
     }
 
 });
@@ -35,6 +35,7 @@ app.post('/usuarios', async (req, res) => {
 app.listen(3000, async () => {
     const data = new Date();
     console.log("Servidor iniciado na porta 3000", data);
+    console.log("Olha o aviãozinho: http://localhost:3000/usuarios")
     const conexao = await pool.getConnection();
     console.log(conexao.threadId);
     conexao.release();

@@ -10,8 +10,6 @@ function validaEmail(email) {
     return isvallid
 }
 
-
-
 export function validaUsuario(nome, email){
     const nomeValido = validaNome(nome);
     const emailValido = validaEmail(email)
