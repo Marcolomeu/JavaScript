@@ -9,8 +9,6 @@ const pool = mysql.createPool({
 
 export default pool;
 
-
-
 /*
 create database captura;
 

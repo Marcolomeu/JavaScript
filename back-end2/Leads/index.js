@@ -29,7 +29,6 @@ app.post('/usuarios', async (req, res) => {
     } else{
         res.status(400).send( {"Mensagem": usuarioValido.mensagem});
     }
-
 });
 
 app.listen(3000, async () => {
